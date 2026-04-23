@@ -1,3 +1,4 @@
 flask
 flask-cors
-playwright
+requests
+beautifulsoup4
