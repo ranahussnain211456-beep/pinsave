@@ -62,7 +62,7 @@ if (navToggle && navLinks) {
    If you run server.py locally, keep this as http://localhost:5000
    If you deploy to a server, change it to your server's URL.
    ────────────────────────────────────────────────────────────────────────── */
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://web-production-a40db.up.railway.app';
 
 /* ── URL VALIDATION ── */
 function isPinterestUrl(url) {
@@ -177,7 +177,7 @@ async function fetchPinterestVideo(url) {
     // Backend not running or network issue
     return {
       ok:      false,
-      message: '⚠️ Server not running. Please start server.py first:\n\npython server.py',
+      message: 'Cannot connect to download server. Make sure server.py is running on port 5000.',
     };
   }
 }
@@ -186,10 +186,6 @@ async function fetchPinterestVideo(url) {
 async function handleDownload() {
   const input = document.getElementById('pinterestUrl');
   const url   = input ? input.value.trim() : '';
-  const downloadBtn = document.getElementById('downloadBtn');
-
-  // Prevent double-click / duplicate calls
-  if (downloadBtn && downloadBtn.disabled) return;
 
   setDownloaderState('idle');
 
@@ -240,10 +236,11 @@ if (urlInput) {
     if (e.key === 'Enter') handleDownload();
   });
 
-  // Paste event — just clear any previous error, don't auto-download
+  // Auto-download when URL is pasted
   urlInput.addEventListener('paste', function () {
     setTimeout(() => {
-      setDownloaderState('idle');
+      const val = this.value.trim();
+      if (isPinterestUrl(val)) handleDownload();
     }, 120);
   });
 }
