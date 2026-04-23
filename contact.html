@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | PinSave Pinterest Video Downloader</title>
+  <meta name="description" content="Get in touch with the PinSave team. Report a bug, ask a question, or send us feedback about our Pinterest video downloader." />
+  <meta name="keywords" content="contact pinsave, pinsave support, pinterest downloader help" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pinsave.example.com/contact.html" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-pin">📌</span>
+        <span class="logo-text">Pin<span class="logo-accent">Save</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="how-to.html" class="nav-link">How to Download</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+        <li><a href="terms.html" class="nav-link">Terms & Privacy</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="theme-icon" id="themeIcon">🌙</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="hero-badge">📬 Get In Touch</div>
+        <h1 class="hero-title">Contact <span class="title-highlight">Us</span></h1>
+        <p class="hero-subtitle">Have a question, bug report, or feedback? We'd love to hear from you.</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Contact Form -->
+          <div class="contact-form-wrap">
+            <h2>Send a Message</h2>
+            <div id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="e.g. Ali Ahmed" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="you@example.com" autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject">
+                  <option value="">Select a topic…</option>
+                  <option value="bug">Bug / Download Issue</option>
+                  <option value="feature">Feature Request</option>
+                  <option value="dmca">DMCA / Copyright</option>
+                  <option value="ads">Advertising</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="6" placeholder="Describe your issue or message in detail…"></textarea>
+              </div>
+              <button class="btn-download" onclick="submitContactForm()" style="width:100%">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-icon">→</span>
+              </button>
+            </div>
+
+            <!-- Success message -->
+            <div class="form-success" id="formSuccess" style="display:none;">
+              <div style="font-size:3rem;">✅</div>
+              <h3>Message Sent!</h3>
+              <p>Thanks for reaching out. We'll get back to you within 24–48 hours.</p>
+              <button class="btn-outline" onclick="resetContactForm()">Send Another</button>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <h2>Other Ways to Reach Us</h2>
+            <div class="contact-card">
+              <div class="contact-icon">📧</div>
+              <div>
+                <h4>Email</h4>
+                <p>support@pinsave.example.com</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">⏱️</div>
+              <div>
+                <h4>Response Time</h4>
+                <p>Typically within 24–48 hours on business days.</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">🐛</div>
+              <div>
+                <h4>Reporting a Bug?</h4>
+                <p>Please include the Pinterest URL that failed and the error message you saw.</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">⚖️</div>
+              <div>
+                <h4>DMCA / Copyright</h4>
+                <p>For copyright concerns, select "DMCA / Copyright" from the subject dropdown. We take all requests seriously and respond promptly.</p>
+              </div>
+            </div>
+
+            <div class="faq-quick">
+              <h4>Quick Answers</h4>
+              <p>Check our <a href="index.html#faq">FAQ section</a> or the <a href="how-to.html">How to Download guide</a> before reaching out — your question may already be answered!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-pin">📌</span>
+            <span class="logo-text">Pin<span class="logo-accent">Save</span></span>
+          </a>
+          <p>The fastest, free Pinterest video downloader. Save any Pinterest video in HD — no sign-up required.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-to.html">How to Download</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="terms.html">Terms &amp; Privacy</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="contact.html">Report a Problem</a></li>
+            <li><a href="terms.html#privacy">Privacy Policy</a></li>
+            <li><a href="terms.html#terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 PinSave. All rights reserved. Not affiliated with Pinterest, Inc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

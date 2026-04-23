@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PinSave – Free Pinterest Video Downloader | Download Pinterest Videos in HD</title>
+  <meta name="description" content="Download Pinterest videos for free in HD quality. PinSave is the fastest, easiest Pinterest video downloader – no app install needed. Just paste the link and download!" />
+  <meta name="keywords" content="pinterest video downloader, download pinterest videos, pinterest downloader, pinterest video saver, save pinterest videos, pinterest to mp4" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="PinSave – Free Pinterest Video Downloader" />
+  <meta property="og:description" content="Download Pinterest videos instantly in HD. Free, fast, no signup required." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pinsave.example.com/" />
+  <link rel="canonical" href="https://pinsave.example.com/" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- FAQ Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I download a Pinterest video?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Copy the Pinterest video URL, paste it into the input box on PinSave, click Download, and your video will be saved to your device instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is PinSave free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! PinSave is completely free. No account, no subscription, no hidden charges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What video quality does PinSave support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PinSave downloads Pinterest videos in the highest available quality, including HD (1080p) when available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it safe to use PinSave?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. PinSave does not store your Pinterest links or downloaded videos. All processing is done securely and privately."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I download Pinterest videos on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! PinSave works perfectly on all devices including iPhones, Android phones, tablets, and desktop computers."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-pin">📌</span>
+        <span class="logo-text">Pin<span class="logo-accent">Save</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="how-to.html" class="nav-link">How to Download</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li><a href="terms.html" class="nav-link">Terms & Privacy</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="theme-icon" id="themeIcon">🌙</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-decoration">
+        <div class="deco-circle deco-1"></div>
+        <div class="deco-circle deco-2"></div>
+        <div class="deco-blob"></div>
+      </div>
+      <div class="container">
+        <div class="hero-badge">⚡ Fast &amp; Free</div>
+        <h1 class="hero-title">
+          Download Pinterest<br />
+          <span class="title-highlight">Videos Instantly</span>
+        </h1>
+        <p class="hero-subtitle">
+          Paste any Pinterest video link and save it in HD quality — no sign-up, no watermarks, completely free.
+        </p>
+
+        <!-- DOWNLOADER WIDGET -->
+        <div class="downloader-card" id="downloaderCard">
+          <div class="input-group">
+            <input
+              type="url"
+              id="pinterestUrl"
+              class="url-input"
+              placeholder="Paste Pinterest video URL here…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button class="btn-download" id="downloadBtn" onclick="handleDownload()">
+              <span class="btn-text">Download</span>
+              <span class="btn-icon">↓</span>
+            </button>
+          </div>
+          <p class="input-hint">e.g. https://www.pinterest.com/pin/123456789/</p>
+
+          <!-- Progress / Spinner -->
+          <div class="progress-wrap" id="progressWrap" style="display:none;">
+            <div class="spinner-ring"></div>
+            <p class="progress-text" id="progressText">Fetching video…</p>
+          </div>
+
+          <!-- Result Box -->
+          <div class="result-box" id="resultBox" style="display:none;">
+            <div class="result-icon">✅</div>
+            <p class="result-msg">Video found! Click below to download.</p>
+            <a href="#" class="btn-save" id="saveBtn" download="pinterest-video.mp4">
+              💾 Save Video
+            </a>
+          </div>
+
+          <!-- Error Box -->
+          <div class="error-box" id="errorBox" style="display:none;">
+            <div class="error-icon">⚠️</div>
+            <p class="error-msg" id="errorMsg">Could not fetch video. Please check the URL and try again.</p>
+          </div>
+        </div>
+
+        <div class="hero-trust">
+          <span>🔒 Secure</span>
+          <span>📵 No Watermark</span>
+          <span>🆓 100% Free</span>
+          <span>📱 Works on Mobile</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title">Why Choose <span class="accent">PinSave</span>?</h2>
+        <p class="section-sub">Built for speed, simplicity, and reliability.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Lightning Fast</h3>
+            <p>Our servers process your request in seconds. No waiting, no queues.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎬</div>
+            <h3>HD Quality</h3>
+            <p>Downloads the highest available resolution — up to 1080p HD.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Safe & Private</h3>
+            <p>We never store your links or files. Your data stays yours.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>All Devices</h3>
+            <p>Works on iPhone, Android, Windows, Mac — any browser, any screen.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🚫</div>
+            <h3>No Watermark</h3>
+            <p>Download clean, original videos with zero added branding.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔑</div>
+            <h3>No Sign-Up</h3>
+            <p>Just paste the URL and download. No account required, ever.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (mini) -->
+    <section class="how-mini" id="howMini">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Three simple steps to save any Pinterest video.</p>
+        <div class="steps-row">
+          <div class="step-item">
+            <div class="step-number">01</div>
+            <div class="step-body">
+              <h3>Copy Link</h3>
+              <p>Open Pinterest, find your video, tap <em>Share</em> and copy the link.</p>
+            </div>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step-item">
+            <div class="step-number">02</div>
+            <div class="step-body">
+              <h3>Paste &amp; Click</h3>
+              <p>Paste the URL into PinSave's input box and hit <strong>Download</strong>.</p>
+            </div>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step-item">
+            <div class="step-number">03</div>
+            <div class="step-body">
+              <h3>Save to Device</h3>
+              <p>Your video downloads instantly to your phone or computer.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="how-to.html" class="btn-outline">Full Guide →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Everything you need to know about PinSave.</p>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              How do I download a Pinterest video?
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Copy the Pinterest video URL, paste it into the input box on PinSave, click <strong>Download</strong>, and your video will be saved to your device instantly.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Is PinSave free to use?
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! PinSave is completely free. No account, no subscription, no hidden charges — ever.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              What video quality does PinSave support?
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>PinSave downloads Pinterest videos in the highest available quality, including HD (1080p) when the source video supports it.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Is it safe to use PinSave?
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely. PinSave does not store your Pinterest links or downloaded videos. All processing is done securely, and we never collect personal data.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Can I download Pinterest videos on mobile?
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! PinSave works perfectly on all devices — iPhone, Android, tablets, and desktops. No app install needed.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Why isn't my video downloading?
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Make sure you're copying the full Pinterest pin URL (it should start with pinterest.com/pin/...). Private pins or boards may not be accessible. If issues persist, <a href="contact.html">contact us</a>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Ready to Save Your Favorite Videos?</h2>
+          <p>Join millions who use PinSave daily — free, fast, and private.</p>
+          <a href="#top" class="btn-cta" onclick="document.getElementById('pinterestUrl').focus()">Start Downloading ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-pin">📌</span>
+            <span class="logo-text">Pin<span class="logo-accent">Save</span></span>
+          </a>
+          <p>The fastest, free Pinterest video downloader. Save any Pinterest video in HD — no sign-up required.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-to.html">How to Download</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="terms.html">Terms &amp; Privacy</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="contact.html">Report a Problem</a></li>
+            <li><a href="terms.html#privacy">Privacy Policy</a></li>
+            <li><a href="terms.html#terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 PinSave. All rights reserved. Not affiliated with Pinterest, Inc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
