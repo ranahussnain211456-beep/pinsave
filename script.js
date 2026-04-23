@@ -62,8 +62,7 @@ if (navToggle && navLinks) {
    If you run server.py locally, keep this as http://localhost:5000
    If you deploy to a server, change it to your server's URL.
    ────────────────────────────────────────────────────────────────────────── */
-const API_BASE = 'https://web-production-a40db.up.railway.app';
-
+const API_BASE = 'https://web-production-553f4.up.railway.app';
 /* ── URL VALIDATION ── */
 function isPinterestUrl(url) {
   try {
